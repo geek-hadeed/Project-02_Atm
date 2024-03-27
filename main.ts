@@ -59,7 +59,7 @@ if (ask.accountNumber === ac_No1)
             if (balance1 >= askAmount.amount) {
                 console.log(chalk.green(`Now Your Balance Is $${balance1 - askAmount.amount}`));
             }
-            else (balance1 < askAmount.amount);
+            else
             {
             console.log(chalk.red("Insufficient Balance"));
             }
@@ -117,7 +117,7 @@ else if (ask.accountNumber === ac_No2)
             {
                 console.log(chalk.green(`Now Your Balance Is $${balance2 - askAmount1.amount}`));
             } 
-            else (balance2 < askAmount1.amount);
+            else
             {
                 console.log(chalk.red("Insufficient Balance"));
             }
@@ -173,7 +173,7 @@ else if (ask.accountNumber === ac_No3)
             {
                 console.log(chalk.green(`Now Your Balance Is $${balance3 - askAmount2.amount}`));
             }
-            else balance3 < askAmount2.amount;
+            else
             {
                 console.log(chalk.red("Insufficient Balance"));
             }
