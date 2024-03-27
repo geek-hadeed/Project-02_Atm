@@ -4,11 +4,11 @@ import inquirer from "inquirer";
 import chalk from "chalk";
 
 let ask = await inquirer.prompt([
-  {
+    {
     message: "Enter Your Account Number",
     name: "accountNumber",
     type: "number",
-  },
+    },
 ]);
 
 let balance1: number = 1000;
