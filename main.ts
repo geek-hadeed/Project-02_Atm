@@ -3,6 +3,25 @@
 import inquirer from "inquirer";
 import chalk from "chalk";
 
+let balance1: number = 1000;
+const myPin1: number = 12345;
+const ac_No1: number = 12345;
+
+let balance2: number = 4000;
+const myPin2: number = 56789;
+const ac_No2: number = 56789;
+
+let balance3: number = 12000;
+const myPin3: number = 10112;
+const ac_No3: number = 10112;
+
+
+
+console.log(`I Have Three Users 1.${ac_No1} , 2.${ac_No2} and 3.${ac_No3}`);
+console.log('And The Secret Is That Account Number Is Pin');
+
+
+
 let ask = await inquirer.prompt([
     {
     message: "Enter Your Account Number",
@@ -11,17 +30,6 @@ let ask = await inquirer.prompt([
     },
 ]);
 
-let balance1: number = 1000;
-const myPin1: number = 1234;
-const ac_No1: number = 12345;
-
-let balance2: number = 4000;
-const myPin2: number = 3456;
-const ac_No2: number = 56789;
-
-let balance3: number = 12000;
-const myPin3: number = 7890;
-const ac_No3: number = 10112;
 
 if (ask.accountNumber === ac_No1) 
 {

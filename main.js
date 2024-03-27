@@ -1,6 +1,17 @@
 #! /usr/bin/env node
 import inquirer from "inquirer";
 import chalk from "chalk";
+let balance1 = 1000;
+const myPin1 = 12345;
+const ac_No1 = 12345;
+let balance2 = 4000;
+const myPin2 = 56789;
+const ac_No2 = 56789;
+let balance3 = 12000;
+const myPin3 = 10112;
+const ac_No3 = 10112;
+console.log(`I Have Three Users 1.${ac_No1} , 2.${ac_No2} and 3.${ac_No3}`);
+console.log('And The Secret Is That Account Number Is Pin');
 let ask = await inquirer.prompt([
     {
         message: "Enter Your Account Number",
@@ -8,15 +19,6 @@ let ask = await inquirer.prompt([
         type: "number",
     },
 ]);
-let balance1 = 1000;
-const myPin1 = 1234;
-const ac_No1 = 12345;
-let balance2 = 4000;
-const myPin2 = 3456;
-const ac_No2 = 56789;
-let balance3 = 12000;
-const myPin3 = 7890;
-const ac_No3 = 10112;
 if (ask.accountNumber === ac_No1) {
     console.log(chalk.green("Login Successful"));
     console.log(chalk.yellow.bold("Welcome Sir/Mam,Thank You So Much For Coming Back To Our Bank"));
