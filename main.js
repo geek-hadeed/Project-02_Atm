@@ -28,13 +28,6 @@ if (ask.accountNumber === ac_No1) {
     ]);
     if (askPin.pin === myPin1) {
         console.log(chalk.green("Login Successful"));
-        let askAmount = await inquirer.prompt([
-            {
-                message: "Enter Amount",
-                type: "number",
-                name: "amount",
-            },
-        ]);
         let askOperator = await inquirer.prompt([
             {
                 message: "Whats Your Operation",

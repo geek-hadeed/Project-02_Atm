@@ -45,14 +45,6 @@ if (ask.accountNumber === ac_No1)
     {
         console.log(chalk.green("Login Successful"));
 
-        let askAmount = await inquirer.prompt([
-        {
-            message: "Enter Amount",
-            type: "number",
-            name: "amount",
-        },
-        ]);
-
         let askOperator = await inquirer.prompt([
         {
             message: "Whats Your Operation",
@@ -71,7 +63,7 @@ if (ask.accountNumber === ac_No1)
                     name: "amount",
                 },
                 ]);
-            
+
             if (balance1 >= askAmount.amount) {
                 console.log(chalk.green(`Now Your Balance Is $${balance1 - askAmount.amount}`));
             }
