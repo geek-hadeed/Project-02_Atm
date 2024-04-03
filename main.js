@@ -39,11 +39,18 @@ if (ask.accountNumber === ac_No1) {
             {
                 message: "Whats Your Operation",
                 type: "list",
-                choices: ["Withdraw", "Deposit"],
+                choices: ["Withdraw", "Deposit", "Fast Cash", "Exit"],
                 name: "operation",
             },
         ]);
         if (askOperator.operation === "Withdraw") {
+            let askAmount = await inquirer.prompt([
+                {
+                    message: "Enter Amount",
+                    type: "number",
+                    name: "amount",
+                },
+            ]);
             if (balance1 >= askAmount.amount) {
                 console.log(chalk.green(`Now Your Balance Is $${balance1 - askAmount.amount}`));
             }
@@ -52,10 +59,63 @@ if (ask.accountNumber === ac_No1) {
             }
         }
         else if (askOperator.operation === "Deposit") {
+            let askAmount = await inquirer.prompt([
+                {
+                    message: "Enter Amount",
+                    type: "number",
+                    name: "amount",
+                },
+            ]);
             console.log(chalk.green(`Now Your Balance Is $${balance1 + askAmount.amount}`));
         }
-        else {
-            console.log(chalk.red("Invalid Operation"));
+        else if (askOperator.operation === "Fast Cash") {
+            let askFastCash = await inquirer.prompt([
+                {
+                    message: "Enter Amount",
+                    type: "list",
+                    choices: ["500", "1000", "2000", "5000"],
+                    name: "fastCash",
+                },
+            ]);
+            if (askFastCash.fastCash === "500") {
+                if (balance1 >= 500) {
+                    console.log(chalk.green(`Now Your Balance Is $${balance1 - 500}`));
+                }
+                else {
+                    console.log(chalk.red("Insufficient Balance"));
+                }
+            }
+            else if (askFastCash.fastCash === "1000") {
+                if (balance1 >= 1000) {
+                    console.log(chalk.green(`Now Your Balance Is $${balance1 - 1000}`));
+                }
+                else {
+                    console.log(chalk.red("Insufficient Balance"));
+                }
+            }
+            else if (askFastCash.fastCash === "2000") {
+                if (balance1 >= 2000) {
+                    console.log(chalk.green(`Now Your Balance Is $${balance1 - 2000}`));
+                }
+                else {
+                    console.log(chalk.red("Insufficient Balance"));
+                }
+            }
+            else if (askFastCash.fastCash === "5000") {
+                if (balance1 >= 5000) {
+                    console.log(chalk.green(`Now Your Balance Is $${balance1 - 5000}`));
+                }
+                else {
+                    console.log(chalk.red("Insufficient Balance"));
+                }
+            }
+            else if (askOperator === "Exit") {
+                console.log(chalk.green("Thank You For Using Our Bank"));
+                process.exit(0);
+            }
+            else {
+                console.log(chalk.red("Invalid Operation"));
+            }
         }
     }
     else {
@@ -71,13 +131,6 @@ else if (ask.accountNumber === ac_No2) {
     ]);
     if (askPin1.pin === myPin2) {
         console.log(chalk.green("Login Successful"));
-        let askAmount1 = await inquirer.prompt([
-            {
-                message: "Enter Amount",
-                type: "number",
-                name: "amount",
-            },
-        ]);
         let askOperator1 = await inquirer.prompt([
             {
                 message: "Whats Your Operation",
@@ -87,6 +140,13 @@ else if (ask.accountNumber === ac_No2) {
             },
         ]);
         if (askOperator1.operation === "Withdraw") {
+            let askAmount1 = await inquirer.prompt([
+                {
+                    message: "Enter Amount",
+                    type: "number",
+                    name: "amount",
+                },
+            ]);
             if (balance2 >= askAmount1.amount) {
                 console.log(chalk.green(`Now Your Balance Is $${balance2 - askAmount1.amount}`));
             }
@@ -95,7 +155,60 @@ else if (ask.accountNumber === ac_No2) {
             }
         }
         else if (askOperator1.operation === "Deposit") {
+            let askAmount1 = await inquirer.prompt([
+                {
+                    message: "Enter Amount",
+                    type: "number",
+                    name: "amount",
+                },
+            ]);
             console.log(chalk.green(`Now Your Balance Is $${balance2 + askAmount1.amount}`));
+        }
+        else if (askOperator1.operation === "Fast Cash") {
+            let askFastCash = await inquirer.prompt([
+                {
+                    message: "Enter Amount",
+                    type: "list",
+                    choices: ["500", "1000", "2000", "5000"],
+                    name: "fastCash",
+                },
+            ]);
+            if (askFastCash.fastCash === "500") {
+                if (balance2 >= 500) {
+                    console.log(chalk.green(`Now Your Balance Is $${balance2 - 500}`));
+                }
+                else {
+                    console.log(chalk.red("Insufficient Balance"));
+                }
+            }
+            else if (askFastCash.fastCash === "1000") {
+                if (balance2 >= 1000) {
+                    console.log(chalk.green(`Now Your Balance Is $${balance2 - 1000}`));
+                }
+                else {
+                    console.log(chalk.red("Insufficient Balance"));
+                }
+            }
+            else if (askFastCash.fastCash === "2000") {
+                if (balance2 >= 2000) {
+                    console.log(chalk.green(`Now Your Balance Is $${balance2 - 2000}`));
+                }
+                else {
+                    console.log(chalk.red("Insufficient Balance"));
+                }
+            }
+            else if (askFastCash.fastCash === "5000") {
+                if (balance2 >= 5000) {
+                    console.log(chalk.green(`Now Your Balance Is $${balance2 - 5000}`));
+                }
+                else {
+                    console.log(chalk.red("Insufficient Balance"));
+                }
+            }
+        }
+        else if (askOperator1 === "Exit") {
+            console.log(chalk.green("Thank You For Using Our Bank"));
+            process.exit(0);
         }
         else {
             console.log(chalk.red("Invalid Operation"));
@@ -114,13 +227,6 @@ else if (ask.accountNumber === ac_No3) {
     ]);
     if (askPin2.pin === myPin3) {
         console.log(chalk.green("Login Successful"));
-        let askAmount2 = await inquirer.prompt([
-            {
-                message: "Enter Amount",
-                type: "number",
-                name: "amount",
-            },
-        ]);
         let askOperator2 = await inquirer.prompt([
             {
                 message: "Whats Your Operation",
@@ -130,6 +236,13 @@ else if (ask.accountNumber === ac_No3) {
             },
         ]);
         if (askOperator2.operation === "Withdraw") {
+            let askAmount2 = await inquirer.prompt([
+                {
+                    message: "Enter Amount",
+                    type: "number",
+                    name: "amount",
+                },
+            ]);
             if (balance3 >= askAmount2.amount) {
                 console.log(chalk.green(`Now Your Balance Is $${balance3 - askAmount2.amount}`));
             }
@@ -138,7 +251,60 @@ else if (ask.accountNumber === ac_No3) {
             }
         }
         else if (askOperator2.operation === "Deposit") {
+            let askAmount2 = await inquirer.prompt([
+                {
+                    message: "Enter Amount",
+                    type: "number",
+                    name: "amount",
+                },
+            ]);
             console.log(chalk.green(`Now Your Balance Is $${balance3 + askAmount2.amount}`));
+        }
+        else if (askOperator2.operation === "Fast Cash") {
+            let askFastCash = await inquirer.prompt([
+                {
+                    message: "Enter Amount",
+                    type: "list",
+                    choices: ["500", "1000", "2000", "5000"],
+                    name: "fastCash",
+                },
+            ]);
+            if (askFastCash.fastCash === "500") {
+                if (balance3 >= 500) {
+                    console.log(chalk.green(`Now Your Balance Is $${balance3 - 500}`));
+                }
+                else {
+                    console.log(chalk.red("Insufficient Balance"));
+                }
+            }
+            else if (askFastCash.fastCash === "1000") {
+                if (balance3 >= 1000) {
+                    console.log(chalk.green(`Now Your Balance Is $${balance3 - 1000}`));
+                }
+                else {
+                    console.log(chalk.red("Insufficient Balance"));
+                }
+            }
+            else if (askFastCash.fastCash === "2000") {
+                if (balance3 >= 2000) {
+                    console.log(chalk.green(`Now Your Balance Is $${balance3 - 2000}`));
+                }
+                else {
+                    console.log(chalk.red("Insufficient Balance"));
+                }
+            }
+            else if (askFastCash.fastCash === "5000") {
+                if (balance3 >= 5000) {
+                    console.log(chalk.green(`Now Your Balance Is $${balance3 - 5000}`));
+                }
+                else {
+                    console.log(chalk.red("Insufficient Balance"));
+                }
+            }
+            else if (askOperator2 === "Exit") {
+                console.log(chalk.green("Thank You For Using Our Bank"));
+                process.exit(0);
+            }
         }
         else {
             console.log(chalk.red("Invalid Operation"));
