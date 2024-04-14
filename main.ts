@@ -15,12 +15,25 @@ let balance3: number = 12000;
 const myPin3: number = 10112;
 const ac_No3: number = 10112;
 
+console.log(chalk.bgWhite.blackBright.bold`
 
+
+.------------------. .-----------------. .-----------------.
+| .--------------. || .--------------. || .--------------. |
+| |      __      | || |  _________   | || | ____    ____ | |
+| |     /  \\     | || | |  _   _  |  | || ||_   \\  /   _|| |
+| |    / /\\ \\    | || | |_/ | | \\_|  | || |  |   \\\/   |  | |
+| |   / ____ \\   | || |     | |      | || |  | |\\  /| |  | |
+| | _/ /    \\ \\_ | || |    _| |_     | || | _| |_\\/_| |_ | |
+| ||____|  |____|| || |   |_____|    | || ||_____||_____|| |
+| |              | || |              | || |              | |
+| '--------------' || '--------------' || '--------------' |
+'------------------' '-----------------' '-----------------'
+
+`)
 
 console.log(`I Have Three Users 1.${ac_No1} , 2.${ac_No2} and 3.${ac_No3}`);
-console.log('And The Secret Is That Account Number Is Pin');
-
-
+console.log('And The Secret Is That Account Number Is Pin \n\n');
 
 let ask = await inquirer.prompt([
     {
