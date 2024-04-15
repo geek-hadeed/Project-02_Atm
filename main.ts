@@ -15,7 +15,7 @@ let balance3: number = 12000;
 const myPin3: number = 10112;
 const ac_No3: number = 10112;
 
-console.log(chalk.bgWhite.blackBright.bold`
+console.log(chalk.bgWhite.blackBright.bold(`
 
 
 .------------------. .-----------------. .-----------------.
@@ -30,9 +30,9 @@ console.log(chalk.bgWhite.blackBright.bold`
 | '--------------' || '--------------' || '--------------' |
 '------------------' '-----------------' '-----------------'
 
-`)
+`))
 
-console.log(`I Have Three Users 1.${ac_No1} , 2.${ac_No2} and 3.${ac_No3}`);
+console.log(`I Have Three Users: \n 1.${ac_No1} , \n 2.${ac_No2} and \n 3.${ac_No3}`);
 console.log('And The Secret Is That Account Number Is Pin \n\n');
 
 let ask = await inquirer.prompt([
@@ -48,7 +48,7 @@ if (ask.accountNumber === ac_No1)
 {
     console.log(chalk.green("Login Successful"));
     console.log(chalk.yellow.bold("Welcome Sir/Mam,Thank You So Much For Coming Back To Our Bank"));
-    console.log(`Your Account Balance Is $${balance1}`);
+
 
     let askPin = await inquirer.prompt([
     { message: "Enter Your Pin", type: "number", name: "pin" },
@@ -62,7 +62,7 @@ if (ask.accountNumber === ac_No1)
         {
             message: "Whats Your Operation",
             type: "list",
-            choices: ["Withdraw", "Deposit" , "Fast Cash" , "Exit"],
+            choices: ["Withdraw", "Deposit" , "Fast Cash" , "Check Balance" , "Exit"],
             name: "operation",
         },
         ]);
@@ -77,8 +77,10 @@ if (ask.accountNumber === ac_No1)
                 },
                 ]);
 
-            if (balance1 >= askAmount.amount) {
-                console.log(chalk.green(`Now Your Balance Is $${balance1 - askAmount.amount}`));
+            if (balance1 >= askAmount.amount) 
+            {
+                balance1 -= askAmount.amount
+                console.log(chalk.green(`Now Your Balance Is $${balance1}`));
             }
             else
             {
@@ -95,7 +97,8 @@ if (ask.accountNumber === ac_No1)
                     name: "amount",
                 },
                 ]);
-            console.log(chalk.green(`Now Your Balance Is $${balance1 + askAmount.amount}`));
+            balance1 += askAmount.amount
+            console.log(chalk.green(`Now Your Balance Is $${balance1}`));
         } 
 
         else if(askOperator.operation === "Fast Cash")
@@ -113,7 +116,8 @@ if (ask.accountNumber === ac_No1)
             {
                 if(balance1 >= 500)
                 {
-                    console.log(chalk.green(`Now Your Balance Is $${balance1 - 500}`));
+                    balance1 -= 500
+                    console.log(chalk.green(`Now Your Balance Is $${balance1}`));
                 }
                 else
                 {
@@ -125,7 +129,8 @@ if (ask.accountNumber === ac_No1)
             {
                 if(balance1 >= 1000)
                 {
-                    console.log(chalk.green(`Now Your Balance Is $${balance1 - 1000}`));
+                    balance1 -= 1000
+                    console.log(chalk.green(`Now Your Balance Is $${balance1}`));
                 }
                 else
                 {
@@ -137,7 +142,8 @@ if (ask.accountNumber === ac_No1)
             {
                 if(balance1 >= 2000)
                 {
-                    console.log(chalk.green(`Now Your Balance Is $${balance1 - 2000}`));
+                    balance1 -= 2000
+                    console.log(chalk.green(`Now Your Balance Is $${balance1}`));
                 }
                 else
                 {
@@ -149,17 +155,24 @@ if (ask.accountNumber === ac_No1)
             {
                 if(balance1 >= 5000)
                 {
-                    console.log(chalk.green(`Now Your Balance Is $${balance1 - 5000}`));
+                    balance1 -= 5000 
+                    console.log(chalk.green(`Now Your Balance Is $${balance1}`));
                 }
                 else
                 {
                     console.log(chalk.red("Insufficient Balance"));
                 }
             }
+        
+        else if(askOperator.operation === "Check Balance")
+        {
+            console.log(chalk.green(`Your Balance Is $${balance1}`));
+        }
 
         else if(askOperator === "Exit")
         {
             console.log(chalk.green("Thank You For Using Our Bank"));
+            console.log(chalk.green("You can follow me on linkedin By: https://www.linkedin.com/in/hadeed-hussain/  "));
             process.exit(0);
         }
         
@@ -194,7 +207,7 @@ else if (ask.accountNumber === ac_No2)
         {
             message: "Whats Your Operation",
             type: "list",
-            choices: ["Withdraw", "Deposit"],
+            choices: ["Withdraw", "Deposit" , "Fast Cash" , "Check Balance" , "Exit"],
             name: "operation",
         },
         ]);
@@ -211,7 +224,8 @@ else if (ask.accountNumber === ac_No2)
 
             if (balance2 >= askAmount1.amount) 
             {
-                console.log(chalk.green(`Now Your Balance Is $${balance2 - askAmount1.amount}`));
+                balance2 -= askAmount1.amount
+                console.log(chalk.green(`Now Your Balance Is $${balance2}`));
             } 
             else
             {
@@ -228,7 +242,8 @@ else if (ask.accountNumber === ac_No2)
                     name: "amount",
                 },
                 ]);
-            console.log(chalk.green(`Now Your Balance Is $${balance2 + askAmount1.amount}`));
+            balance2 += askAmount1.amount
+            console.log(chalk.green(`Now Your Balance Is $${balance2}`));
         }
 
         else if(askOperator1.operation === "Fast Cash")
@@ -246,7 +261,8 @@ else if (ask.accountNumber === ac_No2)
             {
                 if(balance2 >= 500)
                 {
-                    console.log(chalk.green(`Now Your Balance Is $${balance2 - 500}`));
+                    balance2 -= 500
+                    console.log(chalk.green(`Now Your Balance Is $${balance2}`));
                 }
                 else
                 {
@@ -258,7 +274,8 @@ else if (ask.accountNumber === ac_No2)
             {
                 if(balance2 >= 1000)
                 {
-                    console.log(chalk.green(`Now Your Balance Is $${balance2 - 1000}`));
+                    balance2 -= 1000
+                    console.log(chalk.green(`Now Your Balance Is $${balance2}`));
                 }
                 else
                 {
@@ -270,7 +287,8 @@ else if (ask.accountNumber === ac_No2)
             {
                 if(balance2 >= 2000)
                 {
-                    console.log(chalk.green(`Now Your Balance Is $${balance2 - 2000}`));
+                    balance2 -= 2000
+                    console.log(chalk.green(`Now Your Balance Is $${balance2}`));
                 }
                 else
                 {
@@ -282,7 +300,8 @@ else if (ask.accountNumber === ac_No2)
             {
                 if(balance2 >= 5000)
                 {
-                    console.log(chalk.green(`Now Your Balance Is $${balance2 - 5000}`));
+                    balance2 -= 5000
+                    console.log(chalk.green(`Now Your Balance Is $${balance2}`));
                 }
                 else
                 {
@@ -290,11 +309,18 @@ else if (ask.accountNumber === ac_No2)
                 }
             }
         }
-
-        else if(askOperator1 === "Exit")
+        else if(askOperator1.operation === "Check Balance")
         {
-            console.log(chalk.green("Thank You For Using Our Bank"));
-            process.exit(0);
+            console.log(chalk.green(`Your Balance Is $${balance2}`));
+        }
+        
+        else if(askOperator1.operation === "Exit")
+            {
+                console.log(chalk.green("Thank You For Using Our Bank"));
+                console.log(chalk.green("You can follow me on linkedin By: https://www.linkedin.com/in/hadeed-hussain/  "));
+                process.exit(0);
+            }
+    
         }
 
         else 
@@ -302,17 +328,12 @@ else if (ask.accountNumber === ac_No2)
         console.log(chalk.red("Invalid Operation"));
         }
     } 
-    else 
-    {
-    console.log(chalk.red("Login Failed"));
-    }
-}
+
 else if (ask.accountNumber === ac_No3) 
 {
     console.log(chalk.green("Login Successful"));
     console.log(
     chalk.yellow.bold("Welcome Sir/Mam,Thank You So Much For Coming Back To Our Bank"));
-    console.log(`Your Account Balance Is $${balance3}`);
 
     let askPin2 = await inquirer.prompt([
         { message: "Enter Your Pin", type: "number", name: "pin" },
@@ -326,7 +347,7 @@ else if (ask.accountNumber === ac_No3)
         {
             message: "Whats Your Operation",
             type: "list",
-            choices: ["Withdraw", "Deposit"],
+            choices: ["Withdraw", "Deposit" , "Check Balance" , "Fast Cash"],
             name: "operation",
         },
         ]);
@@ -342,7 +363,8 @@ else if (ask.accountNumber === ac_No3)
 
             if (balance3 >= askAmount2.amount) 
             {
-                console.log(chalk.green(`Now Your Balance Is $${balance3 - askAmount2.amount}`));
+                balance3 -= askAmount2.amount
+                console.log(chalk.green(`Now Your Balance Is $${balance3}`));
             }
             else
             {
@@ -358,7 +380,8 @@ else if (ask.accountNumber === ac_No3)
                     name: "amount",
                 },
                 ]);
-            console.log(chalk.green(`Now Your Balance Is $${balance3 + askAmount2.amount}`));
+            balance3 += askAmount2.amount
+            console.log(chalk.green(`Now Your Balance Is $${balance3}`));
         }
 
         else if(askOperator2.operation === "Fast Cash")
@@ -376,7 +399,8 @@ else if (ask.accountNumber === ac_No3)
             {
                 if(balance3 >= 500)
                 {
-                    console.log(chalk.green(`Now Your Balance Is $${balance3 - 500}`));
+                    balance3 -= 500
+                    console.log(chalk.green(`Now Your Balance Is $${balance3}`));
                 }
                 else
                 {
@@ -388,7 +412,8 @@ else if (ask.accountNumber === ac_No3)
             {
                 if(balance3 >= 1000)
                 {
-                    console.log(chalk.green(`Now Your Balance Is $${balance3 - 1000}`));
+                    balance3 -= 1000
+                    console.log(chalk.green(`Now Your Balance Is $${balance3}`));
                 }
                 else
                 {
@@ -400,7 +425,8 @@ else if (ask.accountNumber === ac_No3)
             {
                 if(balance3>= 2000)
                 {
-                    console.log(chalk.green(`Now Your Balance Is $${balance3 - 2000}`));
+                    balance3 -= 2000
+                    console.log(chalk.green(`Now Your Balance Is $${balance3}`));
                 }
                 else
                 {
@@ -412,17 +438,24 @@ else if (ask.accountNumber === ac_No3)
             {
                 if(balance3 >= 5000)
                 {
-                    console.log(chalk.green(`Now Your Balance Is $${balance3 - 5000}`));
+                    balance3 -= 5000
+                    console.log(chalk.green(`Now Your Balance Is $${balance3}`));
                 }
                 else
                 {
                     console.log(chalk.red("Insufficient Balance"));
                 }
             }
+        
+        else if(askOperator2.operation === "Check Balance")
+        {
+            console.log(chalk.green(`Your Balance Is $${balance3}`));
+        }
             
         else if(askOperator2 === "Exit")
         {
             console.log(chalk.green("Thank You For Using Our Bank"));
+            console.log(chalk.green("You can follow me on linkedin By: https://www.linkedin.com/in/hadeed-hussain/  "));
             process.exit(0);
         }
     
@@ -431,13 +464,12 @@ else if (ask.accountNumber === ac_No3)
         {
         console.log(chalk.red("Invalid Operation"));
         }
-
     } 
     else 
     {
         console.log(chalk.red("Login Failed"));
     }
-}  
+}
 else
 {
     console.log(chalk.red("Invalid Account Number"));
